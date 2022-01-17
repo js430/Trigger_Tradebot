@@ -13,7 +13,7 @@ load_dotenv()
 
 TOKEN=os.getenv('DISCORD_TOKEN')
 
-TEST=True
+TEST=False
 #
 if TEST:
     alert_channels=[930167379080663071]
