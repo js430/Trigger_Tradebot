@@ -18,7 +18,12 @@ TEST=False
 if TEST:
     alert_channels=[930167379080663071]
 else:
-    alert_channels=[905998288568868885, 924488314801750016, 919815078298132508]
+    my_file=open("servers.txt", "r")
+    content=my_file.read()
+    alert_channels=content.split(",")
+    alert_channels=[int(i) for i in alert_channels]
+    my_file.close()
+    #alert_channels=[905998288568868885, 924488314801750016, 919815078298132508]
 #bot test
 #Trigger, other server
 
@@ -31,6 +36,7 @@ async def on_ready():
     for guild in bot.guilds:
         print(guild)
         print(guild.id)
+        print(type(alert_channels[0]))
 
 
 @bot.command(name='sbuy')
